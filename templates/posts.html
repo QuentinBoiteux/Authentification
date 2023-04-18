@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/posts/style.css">
+</head>
+<header class="header">
+    <div class="filter" onclick="showBarre()">Filter</div>
+    <div class="filterByDate" onclick="reverse()">By date</div>
+    <div class="filterByLikes" onclick="filterByLikes()">By likes</div>
+    <div class="myPosts" onclick="filterUserPosts()">My Posts</div>
+    <div class="myLikes" onclick="filterUserLikes()">My Likes</div>
+    <form action="/api/filter" method="post">
+        <input class="filterBox" name="filter" type="text" placeholder="Example: SPORT" autocomplete="off" autofocus=""
+            required="">
+        <input type="submit" class="filterBtn" value="Search">
+    </form>
+    <div class="clearFilter" onclick="clearFilters()">Clear All</div>
+    <h1 class="header-title">SHITPOST</h1>
+    <div class="burger" onclick="showBurger()"></div>
+    <div class="burgerBox">
+        <div class="deco" onclick="deleteCookies()">Log Out</div>
+
+    </div>
+
+</header>
+
+<body>
+    <div class="allAll">
+        <div class="theForm">
+            <form enctype='multipart/form-data' class="formBox" action="/api/post/new" method="post">
+                <h1 class="Title-T">Create a post</h1>
+                <input class="title" name="title" type="text" placeholder="title" autocomplete="off" autofocus required>
+                <input class="posts" name="body" type="text" placeholder="text" autocomplete="off" autofocus required>
+                <input class="category" name="category" type="text" placeholder="category" autocomplete="off" autofocus
+                    required>
+                <input id="Upload-Image" type="file" name="file" autofocus accept="image/png, image/gif, image/jpeg"
+                    onchange="setFileName(this.value)">
+                <label class="labelUpload" for="Upload-Image">Upload image</label>
+                <div class="description"></div>
+                <input type="submit" class="btn" value="Send">
+            </form>
+        </div>
+        <div class="theRest">
+            <h1 class="restTitle" style="text-align:center;">All the posts</h1>
+            <div class="contains"></div>
+            {{ range .}}
+            <div class="postAndComment">
+                <div class="posters">
+                    <h2 class="categories">#{{ .Category }}</h2>
+                    <p class="timeStamp">{{ .PostTime }}</p>
+                    <h2>{{ .Title }}</h2>
+                    {{ if .ImagePath }}
+                    <a href="{{ .ImagePath }}">
+                        <img class="image" src="{{ .ImagePath }}">
+                    </a>
+                    {{ end }}
+                    <h3>{{ .Body }}</h3>
+                    <p style="font-size:0.8em;">by <span class="usernameTag">{{.Username}}</span></p>
+                    <div class="delete-like">
+                        <form action="/api/post/delete" method="post">
+                            <input type="hidden" name="id" value="{{.Id}}">
+                            <button class="delete-btn" type="submit">Delete</button>
+                        </form>
+                        <a class="like-button" href="javascript:addLikes({{.Id}})">Like ({{ .Likes }})</a>
+                        <a class="dislike-button" href="javascript:addDislikes({{.Id}})">Dislike ({{ .Dislikes }})</a>
+                    </div>
+                    <div class="commentSection">
+                        <form action="/api/comment/new" method="post">
+                            <h4 style="margin-bottom:0;">Write a comment</h4>
+                            <input class="commentBox" name="commentBox" type="text" placeholder="Comment the post"
+                                autocomplete="off">
+                            <input type="hidden" name="id" value="{{.Id}}">
+                            <input type="submit" class="btn-comment" value="Send">
+                        </form>
+                    </div>
+                </div>
+                {{range .Comments}}
+                <div class="comment">
+                    <p style="font-size: 15px; font-weight: bolder; margin-bottom:0;"><span
+                            class="commentUsernameTag">{{.Username}}</span> commented: </p>
+                    <p style="font-size: 21px; font-weight: bold; color: white;">{{.Body}}</p>
+                    <div class="buttons" style="display:flex; padding-bottom: 10px;">
+                        <a class="like-button" style="background: var(--main-header-color); color: white;"
+                            href="javascript:addLikesComment({{.Id}})">Like ({{ .Likes }})</a>
+                        <a class="dislike-button" style="background: var(--main-header-color); color: white;"
+                            href="javascript:addDislikesComment({{.Id}})">Dislike ({{ .Dislikes }})</a>
+                    </div>
+                </div>
+                {{end}}
+            </div>
+            {{ end }}
+        </div>
+    </div>
+
+    </div>
+
+    <script>
+        function addLikes(post_id) {
+            fetch("/api/like?post_id=" + post_id)
+        }
+        function addDislikes(post_id) {
+            fetch("/api/dislike?post_id=" + post_id)
+        }
+        function addLikesComment(comment_id) {
+            fetch("/api/likecomment?comment_id=" + comment_id)
+        }
+        function addDislikesComment(comment_id) {
+            fetch("/api/dislikecomment?comment_id=" + comment_id)
+        }
+    </script>
+    <script src="/static/posts/main.js"></script>
+</body>
+<footer class="footer">Copyright by Daryl, Zone01 Rouen 76000</footer>
+
+</html>

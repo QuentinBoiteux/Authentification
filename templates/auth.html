@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <title>FORUM</title>
+</head>
+
+<body style="overflow: hidden">
+    <header></header>
+    <div class="main-part">
+        <div class="text">
+            <h1 data-text="FORUM" class="legende"></h1>
+        </div>
+
+        <form method="post" class="form" action="/login" hidden>
+            <div class="legende2">CONNEXION</div>
+            <input class="box" name="mail" type="email" placeholder="Email" autocomplete="off" autofocus=""
+                required="" />
+            <div id="Mail" style="display: none; color: red">
+                Veuillez saisir votre adresse Email.
+            </div>
+            <input class="box" autocomplete="off" name="password" type="password" placeholder="Mot de passe"
+                autofocus="" required="" />
+            <div id="MotDePasse" style="display: none; color: red">
+                Veuillez saisir votre mot de passe.
+            </div>
+            <a class="forgotPassword" href="">Mot de passe oublié ?</a>
+            <div class="buttons">
+                <button class="btn" onclick="window.location.href = '/'">
+                    < Retour </button>
+                        <input type="submit" class="btn" value="Se connecter" />
+            </div>
+        </form>
+        <form method="post" class="form-inscription" action="/register" hidden>
+            <div class="legende3">INSCRIPTION</div>
+            <input class="box" autocomplete="off" name="username" placeholder="Pseudo" autofocus="" required="" />
+            <input class="box" name="mail" type="email" placeholder="Email" autocomplete="off" autofocus=""
+                required="" />
+            <input class="box" id="mdp" autocomplete="off" name="password" type="password" placeholder="Mot de passe"
+                autofocus="" required="" minlength="8" required />
+            <span id="msg" style="
+                        margin-top: 30px;
+                        color: var(--light-sec-accent-color);
+                        visibility: hidden;
+                    ">Le mot de passe doit être supérieur à 8 caractères, au
+                moins 1 chiffre et 1 caractère spécial.</span>
+            <a class="alreadyAccount">Compte existant?</a>
+            <div class="buttons">
+                <button class="btn" onclick="window.location.href = '/'">
+                    < Retour </button>
+                        <input type="submit" class="btn" id="registerBtn" value="s'inscrire" onclick="validate()" />
+            </div>
+        </form>
+        <div class="choose">
+            <button class="btn" id="connect" onclick="onclik()">
+                Se connecter
+            </button>
+            <button class="btn" id="inscris" onclick="inscription()">
+                S'inscrire
+            </button>
+        </div>
+        <div class="connexionTiers">
+            <a name="google_code"
+                href="https://accounts.google.com/o/oauth2/auth?client_id=391776863434-om8h81q1ssu6gq4qtufuoh661mb1uoeh.apps.googleusercontent.com&redirect_uri=https://localhost:443/google&scope=openid email profile&response_type=code"
+                class="connectGoogle"></a>
+            <a name="github_code"
+                href="https://github.com/login/oauth/authorize?client_id=18685620b53c0b8595cd&scope=user"
+                class="connectGithub"></a>
+        </div>
+    </div>
+    <script src="/static/main.js"></script>
+    <footer>
+        <div class="copyright">
+            &copy Evan, Quentin, Daryl Forum project, Zone01 Rouen.
+        </div>
+        <a href="/EnSavoirPlus.html" class="copyright">En savoir plus</a>
+    </footer>
+</body>
+
+</html>

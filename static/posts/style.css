@@ -1,0 +1,648 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300&display=swap');
+
+:root {
+    --main-background-color: #F5F5F5;
+    --main-header-color: #161616;
+    --main-accent-color: #D32F2F;
+    --light-accent-color: #E57373;
+    --light-sec-accent-color: var(--main-accent-color);
+    --dark-accent-color: #B71C1C;
+    --white: #FFF;
+    --sec-header: #212121;
+}
+
+body {
+    overflow-x: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: beige;
+    font-family: "Unbounded";
+    min-height: 80vh;
+}
+
+.pseudo {
+    font-size: 30px;
+    margin-left: 210px;
+    color: #D32F2F;
+}
+
+.header {
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: var(--main-header-color);
+    position: absolute;
+    top: 0%;
+    width: 100%;
+    height: 100px;
+    font-family: "Unbounded";
+}
+
+.header-title {
+    position: relative;
+    left: -6%;
+    font-size: 50px;
+    font-weight: bolder;
+    color: white;
+}
+
+.description {
+    font-family: "Unbounded";
+    font-weight: bolder;
+    margin-top: 7px;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: -20px;
+    background-color: var(--main-header-color);
+    height: 85px;
+    width: 100vw;
+    margin-top: 40px;
+    color: white;
+    font-family: "Unbounded";
+}
+
+.allAll {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    min-height: 86.3vh;
+}
+
+.theForm,
+.theRest {
+    margin: 0 20px;
+    flex-basis: 50%;
+}
+
+.theRest,
+.theForm {
+    margin-top: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.formBox {
+    right: 250px;
+    top: 150px;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.Title-T,
+.restTitle {
+    font-weight: bold;
+    font-family: "Unbounded";
+    text-transform: uppercase;
+    color: var(--main-accent-color);
+    font-size: 30px;
+    margin-top: 5%;
+}
+
+.title {
+    padding: 5px 10px;
+    font-size: 35px;
+    resize: none;
+    width: 400px;
+    height: 50px;
+    border: none;
+    background: var(--main-accent-color);
+    font-family: "Unbounded";
+    font-weight: bolder;
+    outline: none;
+    color: white;
+    margin-top: 9px;
+    margin-bottom: 10px;
+}
+
+.title::placeholder {
+    color: var(--light-accent-color);
+    font-size: 0.7em;
+}
+
+.posts {
+    padding: 5px 10px;
+    font-size: 20px;
+    resize: none;
+    width: 400px;
+    height: 50px;
+    border: none;
+    background: var(--main-accent-color);
+    font-family: "Unbounded";
+    font-weight: bolder;
+
+    outline: none;
+    color: white;
+}
+
+.posts::placeholder {
+    color: var(--light-accent-color);
+}
+
+.btn {
+    cursor: pointer;
+    background-color: var(--main-accent-color);
+    border: none;
+    color: white;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    width: 120px;
+    height: 40px;
+    font-size: 1.2em;
+    transition: all 0.3s ease-out;
+    font-family: "Unbounded";
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    background-color: #B71C1C;
+}
+
+.posters {
+    padding: 10px 20px;
+    background-color: var(--main-header-color);
+    margin-top: 5px;
+    width: 100%;
+    color: var(--white);
+    transition: all 0.3s ease-out;
+}
+
+.posters:hover {
+    scale: 1.01;
+}
+
+.delete-btn {
+    cursor: pointer;
+    background-color: var(--main-accent-color);
+    border: none;
+    width: 100px;
+    height: 30px;
+    transition: all 0.3s ease-out;
+    color: white;
+    font-family: "Unbounded";
+}
+
+.delete-btn:hover {
+    transform: scale(1.05);
+    background-color: #B71C1C;
+}
+
+.delete-like {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.delete-btn,
+.like-button,
+.dislike-button {
+    margin-right: 10px;
+}
+
+.usernameTag {
+    color: var(--main-accent-color);
+    font-weight: bold;
+}
+
+.like-button {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: var(--main-accent-color);
+    border: none;
+    width: 100px;
+    height: 30px;
+    transition: all 0.3s ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.like-button:hover {
+    background-color: #B71C1C;
+    transform: scale(1.05);
+}
+
+.dislike-button {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: var(--main-accent-color);
+    border: none;
+    width: 100px;
+    height: 30px;
+    transition: all 0.3s ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dislike-button:hover {
+    background-color: #B71C1C;
+    transform: scale(1.05);
+}
+
+.like-counter {
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+
+.btn-comment {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: var(--main-accent-color);
+    border: none;
+    width: 80px;
+    height: 30px;
+    transition: all 0.3s ease-out;
+    font-family: "Unbounded";
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.comment-btn {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: var(--main-accent-color);
+    border: none;
+    border-radius: 10px;
+    width: 80px;
+    height: 30px;
+    transition: all 0.3s ease-out;
+}
+
+.btn-comment:hover {
+    background-color: #B71C1C;
+    transform: scale(1.05);
+}
+
+.commentSection {
+    width: auto;
+    display: block;
+    margin-top: 40px;
+    padding-bottom: 15px;
+}
+
+.commentBox {
+    border: none;
+    width: 300px;
+    height: 28px;
+    border: none;
+    outline: none;
+    position: relative;
+    top: -1px;
+    margin-top: 10px;
+    color: white;
+    background: var(--main-accent-color);
+    font-family: "Unbounded";
+}
+
+.commentBox::placeholder {
+    color: var(--light-accent-color);
+}
+
+.labelUpload {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 17px;
+    font-family: "Unbounded";
+    color: var(--white);
+    background-color: var(--main-accent-color);
+    width: 210px;
+    height: 40px;
+    font-size: 18px;
+    font-weight: bolder;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+}
+
+.labelUpload:hover {
+    background-color: #B71C1C;
+    scale: 1.05;
+}
+
+#Upload-Image {
+    display: none;
+}
+
+.commentsFor {
+    color: var(--dark-accent-color);
+    font-weight: bold;
+    font-size: 17px;
+    padding-left: 5px;
+}
+
+.image {
+    max-width: 650px;
+    max-height: 600px;
+    transition: all 0.3s ease-out;
+}
+
+.image:hover {
+    scale: 1.01;
+}
+
+.comment {
+    margin-left: 20px;
+    width: 450px;
+    background: var(--main-accent-color);
+    color: white;
+    font-family: "Unbounded";
+    margin-top: 10px;
+    margin-bottom: 5px;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    transition: all 0.3s ease-out;
+}
+
+.comment:hover {
+    scale: 1.01;
+}
+
+.category {
+    margin-top: 10px;
+    padding: 5px 10px;
+    font-size: 20px;
+    resize: none;
+    width: 400px;
+    height: 50px;
+    border: none;
+    background: var(--main-accent-color);
+    font-family: "Unbounded";
+    font-weight: bolder;
+    outline: none;
+    color: white;
+}
+
+.category::placeholder {
+    color: var(--light-accent-color);
+}
+
+.categories {
+    color: var(--main-accent-color);
+    font-weight: bold;
+}
+
+
+.commentUsernameTag {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--main-header-color);
+}
+
+.filter {
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 500px;
+    color: white;
+}
+
+.burger {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 500px;
+    color: white;
+}
+
+.filter {
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+}
+
+.filter:hover {
+    scale: 1.05;
+    color: var(--main-accent-color);
+}
+
+
+
+.filterBox {
+    z-index: 2;
+    margin-top: 100px;
+    left: 2%;
+    top: 0%;
+    position: absolute;
+    padding: 5px 10px;
+    font-size: 35px;
+    resize: none;
+    width: 400px;
+    height: 50px;
+    border: none;
+    background: var(--main-accent-color);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bolder;
+    outline: none;
+    color: white;
+    transition: all 0.3s ease-out;
+    visibility: hidden;
+}
+
+.filterBox::placeholder {
+    color: var(--light-accent-color);
+    font-size: 0.7em;
+}
+
+.clearFilter {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0%;
+    left: 30.2%;
+    cursor: pointer;
+    background-color: var(--main-accent-color);
+    border: none;
+    color: white;
+    width: 120px;
+    height: 60px;
+    font-size: 1.2em;
+    transition: all 0.3s ease-out;
+    margin-top: 100px;
+    font-family: "Unbounded";
+    visibility: hidden;
+}
+
+.clearFilter:hover {
+    transform: scale(1.05);
+    background-color: #B71C1C;
+}
+
+.filterBtn {
+    position: absolute;
+    top: 0%;
+    left: 23.9%;
+    cursor: pointer;
+    background-color: var(--main-accent-color);
+    border: none;
+    color: white;
+    width: 120px;
+    height: 60px;
+    font-size: 1.2em;
+    transition: all 0.3s ease-out;
+    margin-top: 100px;
+    font-family: "Unbounded";
+    visibility: hidden;
+}
+
+.filterBtn:hover {
+    transform: scale(1.05);
+    background-color: #B71C1C;
+}
+
+.burger {
+    width: 90px;
+    cursor: pointer;
+    height: 30px;
+    background-image: url(/static/png-Images/burgerMenu.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: all 0.3s ease-out;
+}
+
+.burger:hover {
+    scale: 1.05;
+}
+
+.burgerBox {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--white);
+    margin-top: 100px;
+    top: 0%;
+    right: 1%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 250px;
+    background-color: var(--main-accent-color);
+    height: 50px;
+    transition: all 0.3s ease-out;
+    visibility: hidden;
+}
+
+.burgerBox:hover {
+    cursor: pointer;
+    background-color: var(--dark-accent-color);
+}
+
+.filterByDate {
+    visibility: hidden;
+    color: var(--white);
+    position: relative;
+    left: -24%;
+    transition: all 0.3s ease-out;
+}
+
+.filterByDate:hover {
+    scale: 1.05;
+    cursor: pointer;
+}
+
+.filterByLikes {
+    visibility: hidden;
+    color: var(--white);
+    position: relative;
+    left: -24%;
+    transition: all 0.3s ease-out;
+}
+
+.filterByLikes:hover {
+    scale: 1.05;
+    cursor: pointer;
+}
+
+.myLikes {
+    visibility: hidden;
+    color: var(--white);
+    position: relative;
+    left: -24%;
+    transition: all 0.3s ease-out;
+}
+
+.myLikes:hover {
+    scale: 1.05;
+    cursor: pointer;
+}
+
+.myPosts {
+    visibility: hidden;
+    color: var(--white);
+    position: relative;
+    left: -24%;
+    transition: all 0.3s ease-out;
+}
+
+.myPosts:hover {
+    scale: 1.05;
+    cursor: pointer;
+}
+
+@keyframes slide {
+    0% {
+        margin-top: 50px;
+        opacity: 0;
+    }
+
+    100% {
+        margin-top: 100px;
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    0% {
+        margin-top: 100px;
+        opacity: 1;
+    }
+
+    100% {
+        margin-top: 50px;
+        opacity: 0;
+    }
+}
+
+@keyframes slideLeft {
+    0% {
+        left: -28%;
+        opacity: 0;
+    }
+
+    100% {
+        left: -24%;
+        opacity: 1;
+    }
+
+}
+
+@keyframes slideRight {
+    0% {
+        left: -24%;
+        opacity: 1;
+    }
+
+    100% {
+        left: -28%;
+        opacity: 0;
+    }
+
+}

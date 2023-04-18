@@ -1,0 +1,656 @@
+/*styles.css*/
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300&display=swap');
+
+:root {
+    --main-background-color: #F5F5F5;
+    --main-header-color: #161616;
+    --main-accent-color: #D32F2F;
+    --light-accent-color: #E57373;
+    --light-sec-accent-color: #F44336;
+    --dark-accent-color: #B71C1C;
+    --white: #FFF;
+    --sec-header: #212121;
+}
+
+* {
+    font-family: 'Unbounded';
+}
+
+body {
+    background-color: beige;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    align-items: center;
+    flex-direction: column;
+}
+
+header {
+    z-index: 5;
+    width: 101vw;
+    height: 70px;
+    background-color: var(--main-header-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+footer {
+    z-index: 5;
+    width: 102vw;
+    height: 15vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: var(--main-header-color);
+}
+
+.copyright {
+    color: var(--white);
+    text-align: center;
+}
+
+.legende {
+    animation: Appear 0.5s ease-out;
+    display: block;
+    font-weight: bold;
+    font-size: 8rem;
+    z-index: 2;
+    color: black;
+    transition: all 0.3s ease-out;
+}
+
+h1.legende:before,
+h1.legende:after {
+    content: attr(data-text);
+    transition: .3s;
+}
+
+h1.legende:before {
+    position: absolute;
+    z-index: -1;
+    text-shadow:
+        0px 0px,
+        0px 0px,
+        0px 0px,
+        0px 0px,
+        0px 0px,
+        0px 0px,
+        0px 0px,
+        0px 0px,
+        0px 0px,
+        0px 0px;
+    color: var(--dark-accent-color);
+    -webkit-mask: repeating-linear-gradient(45deg, transparent 0 3px, var(--dark-accent-color) 0 6px);
+    mask: repeating-linear-gradient(45deg, transparent 0 3px, var(--dark-accent-color) 0 6px);
+}
+
+h1.legende:hover {
+    transform: translate(-10px, -10px);
+}
+
+h1.legende:hover:before {
+    text-shadow:
+        1px 1px,
+        2px 2px,
+        3px 3px,
+        4px 4px,
+        5px 5px,
+        6px 6px,
+        7px 7px,
+        8px 8px,
+        9px 9px,
+        10px 10px;
+    color: var(--dark-accent-color);
+}
+
+.legende2 {
+    margin-bottom: 2rem;
+    display: none;
+    font-weight: bold;
+    font-size: 5rem;
+    z-index: 2;
+    color: black;
+}
+
+.legende3 {
+    margin-bottom: 2rem;
+    display: none;
+    font-weight: bold;
+    font-size: 5rem;
+    z-index: 2;
+    color: black;
+}
+
+.smallTitle {
+    text-align: center;
+    padding: 0 10vw;
+    animation: Appear 0.5s ease-out;
+}
+
+.form {
+    scale: 0;
+    text-align: center;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.forgotPassword {
+    margin-top: 1.5rem;
+    color: black;
+    font-size: 1.1rem;
+}
+
+.forgotPassword:hover {
+    transition: all 0.3s ease-out;
+    color: var(--dark-accent-color);
+}
+
+.alreadyAccount {
+    cursor: pointer;
+    text-decoration: underline;
+    margin-top: 1.5rem;
+    color: black;
+    font-size: 1.1rem;
+}
+
+.alreadyAccount:hover {
+    transition: all 0.3s ease-out;
+    color: var(--dark-accent-color);
+}
+
+.form-inscription {
+    scale: 0;
+    text-align: center;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.box {
+    margin-top: 1rem;
+    border: 5px solid var(--main-accent-color);
+    border-radius: 10px;
+    padding: 20px;
+    font-weight: bolder;
+    outline: none;
+    width: 400px;
+    font-size: 1.5em;
+    color: var(--main-accent-color);
+    transition: all 0.3s ease-out;
+}
+
+.box:hover {
+    transform: scale(1.02);
+}
+
+.box::placeholder {
+    color: var(--light-accent-color);
+}
+
+.btn {
+    animation: Appear 0.5s ease-out;
+    display: flex;
+    border: none;
+    background-color: var(--light-sec-accent-color);
+    color: var(--white);
+    border-radius: 10px;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    font-weight: bolder;
+    padding: 20px;
+    margin: 40px 20px;
+    width: 270px;
+    justify-content: center;
+    transition: all 0.2s ease-out;
+}
+
+.btn:hover {
+    cursor: pointer;
+    background-color: var(--dark-accent-color);
+    transform: scale(1.03);
+}
+
+.choose {
+    display: flex;
+}
+
+.buttons {
+    display: flex;
+}
+
+@keyframes blink {
+    0% {
+        transform: scaleY(0);
+        transform-origin: top center;
+    }
+
+    100% {
+        transform: scaleY(1);
+        transform-origin: top center;
+    }
+}
+
+@keyframes blinkOut {
+    0% {
+        transform: scaleY(1);
+        transform-origin: top center;
+    }
+
+    100% {
+        transform: scaleY(0);
+        transform-origin: top center;
+    }
+}
+
+@keyframes Appear {
+    0% {
+        transform: scaleY(0.25);
+        transform-origin: top center;
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 0;
+    }
+
+    100% {
+        transform: scaleY(1);
+        transform-origin: top center;
+        opacity: 1;
+    }
+}
+
+@keyframes AppearNoOppacity {
+    0% {
+        transform: scaleY(0);
+        transform-origin: top center;
+    }
+
+    100% {
+        transform: scaleY(1);
+        transform-origin: top center;
+    }
+}
+
+@keyframes DisappearNoOppacity {
+    0% {
+        transform: scaleY(1);
+        transform-origin: top center;
+    }
+
+    100% {
+        transform: scaleY(0);
+        transform-origin: top center;
+    }
+}
+
+@keyframes TransitionOppacity {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes TransitionOppacityOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/*CSS for FORUM*/
+.Icon {
+    border: none;
+    background: url(./png-Images/Icon-Utilisateur.png);
+    cursor: pointer;
+    background-size: contain;
+    position: center;
+    background-repeat: no-repeat;
+    width: 3rem;
+    height: 3rem;
+    margin: 0 40px;
+    background-position: center;
+    transition: all 0.2s ease-out;
+}
+
+.Icon:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+.Burger {
+    transition: all 0.2s ease-out;
+    cursor: pointer;
+    background: url(./png-Images/burgerMenu.png);
+    width: 3rem;
+    margin: 0 40px;
+    background-position: center;
+    height: 3rem;
+    background-size: contain;
+    border: none;
+    background-repeat: no-repeat;
+}
+
+.Burger:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+.windowU {
+    background-color: var(--main-accent-color);
+    width: 17rem;
+    filter: drop-shadow(1px 1px 5px var(--main-header-color));
+    height: 210px;
+    color: var(--white);
+    font-weight: 200;
+    transition: all 0.2s ease-out;
+    border-radius: 0 0 10px 10px;
+    position: absolute;
+    top: 70px;
+    right: 10px;
+    z-index: 5;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.windowU h3 {
+    font-weight: 400;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+.windowelem {
+    transition: all 0.3s ease-out;
+    width: 100%;
+    height: 70px;
+}
+
+#profil {
+    opacity: 0;
+    visibility: hidden;
+}
+
+#parametres {
+    opacity: 0;
+    visibility: hidden;
+}
+
+#deco {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.windowelem:hover {
+    cursor: pointer;
+    background-color: var(--dark-accent-color);
+}
+
+.forumTitle {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--white);
+}
+
+.navbar {
+    z-index: 5;
+    background-color: var(--main-accent-color);
+    width: 101vw;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    filter: drop-shadow(1px 1px 5px var(--main-header-color));
+}
+
+#IT {
+    visibility: hidden;
+    transition: all 0.3s ease-out;
+}
+
+#IT:hover {
+    background-color: var(--dark-accent-color);
+}
+
+#SPORT {
+    visibility: hidden;
+    transition: all 0.3s ease-out;
+}
+
+#SPORT:hover {
+    background-color: var(--dark-accent-color);
+}
+
+#AUTO {
+    visibility: hidden;
+    transition: all 0.3s ease-out;
+}
+
+#AUTO:hover {
+    background-color: var(--dark-accent-color);
+}
+
+#MUSIC {
+    visibility: hidden;
+    transition: all 0.3s ease-out;
+}
+
+#MUSIC:hover {
+    background-color: var(--dark-accent-color);
+}
+
+#ART {
+    visibility: hidden;
+    transition: all 0.3s ease-out;
+}
+
+#ART:hover {
+    background-color: var(--dark-accent-color);
+}
+
+.annuler {
+    cursor: pointer;
+    left: 40px;
+    font-size: 1.5em;
+    font-weight: bold;
+    position: absolute;
+    color: var(--white);
+    transition: all 0.3s ease-out;
+    visibility: hidden;
+}
+
+.annuler:hover {
+    transform: scale(1.25);
+
+}
+
+.element {
+    color: var(--white);
+    height: 70px;
+    width: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease-out;
+}
+
+.element:hover {
+    background-color: var(--dark-accent-color);
+    cursor: pointer;
+}
+
+.main-part {
+    min-height: 79vh;
+    width: 101vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-part-forum {
+    min-height: 79vh;
+    width: 101vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.text {
+    height: 23vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.nani {
+    display: none;
+}
+
+.column {
+    float: left;
+    width: 33.33%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.column {
+    float: left;
+}
+
+.left,
+.right {
+    width: 25%;
+}
+
+.middle {
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.textArea {
+    margin-top: 20px;
+    margin-left: 23.3%;
+    padding-left: 12px;
+    padding-top: 10px;
+    resize: none;
+    border: 5px solid;
+    border-radius: 10px;
+    font-size: 30px;
+    font-weight: bolder;
+    outline: none;
+    width: 50%;
+    height: 150px;
+    font-size: 1.5em;
+    color: var(--light-sec-accent-color);
+    transition: all 0.3s ease-out;
+}
+
+.Post {
+    background: url(./png-Images/send.png);
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 270px;
+    right: 36%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: all 0.3s ease-out;
+    box-shadow: none;
+    border: none;
+}
+
+.Post:hover {
+    cursor: pointer;
+    scale: 1.1;
+}
+
+.left-part {
+    border: 2px var(--sec-header) solid;
+    z-index: 3;
+    left: 0%;
+    top: 0%;
+    width: 25%;
+    height: 100%;
+    position: absolute;
+}
+
+.right-part {
+    border: 2px var(--sec-header) solid;
+    z-index: 3;
+    right: 0%;
+    top: 0%;
+    width: 25%;
+    height: 100%;
+    position: absolute;
+}
+
+.connexionTiers {
+    height: 20px;
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.connectGoogle {
+    background-image: url(/static/png-Images/icons8-google.svg);
+    width: 60px;
+    height: 60px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: all 0.3s ease-out;
+
+}
+
+.connectGoogle:hover{
+    transform: scale(1.05);
+}
+
+.connectGithub {
+    background-image: url(/static/png-Images/icons8-github.svg);
+    width: 60px;
+    height: 60px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: all 0.3s ease-out;
+}
+
+.connectGithub:hover{
+    transform: scale(1.05);
+}
+
+@keyframes slowAppear{
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
